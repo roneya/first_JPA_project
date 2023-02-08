@@ -13,4 +13,10 @@ public class UserService {
         userRepository.save(user);
         return "Added";
     }
+    public User getUser(UserId userId)
+    {
+        User user =  userRepository.findById(userId).get();
+        return user;
+
+    }
 }
