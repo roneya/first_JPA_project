@@ -1,34 +1,44 @@
 package com.example.sql;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "user_info")
-@IdClass(UserId.class)
+
 
 public class User {
 
 
     @Id
+    @Column(unique = true)
     private int id;
-    @Id
+
+    @Column(unique = true)
+    private String email;
     private String name;
-    @Id
+
     private int age;
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Column(name="HomeState")
     private String state;
 
     public User() { //default constructor for beans
     }
 
-    public User (int id, String name, int age, String state) {
+    public User(int id, String email, String name, int age, String state) {
         this.id = id;
+        this.email = email;
         this.name = name;
         this.age = age;
-        this.state=state;
+        this.state = state;
     }
 
     public String getState() {
