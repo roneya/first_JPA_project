@@ -19,4 +19,16 @@ public class UserService {
         return user;
 
     }
+    public String deleteUser(int id, String name, int age)
+    {
+        userRepository.deleteById(new UserId(id,name, age));
+        return name+" deleted";
+    }
+    public User updateUserAge (UserId userId, int newAge)
+    {
+        User user = userRepository.findById(userId).get();
+        user.setAge(newAge);
+        userRepository.save(user);
+        return user;
+    }
 }

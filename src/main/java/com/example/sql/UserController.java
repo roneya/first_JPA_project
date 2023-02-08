@@ -15,11 +15,16 @@ public class UserController {
         return userService.addUser(user);
     }
 
-    @GetMapping("/getUser/{id}/{name}/{age}")
-    public User getUser(@PathVariable int id, @PathVariable String name, @PathVariable int age)
+    @GetMapping("getUser")
+    public User getUser(@RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("age") int age)
     {
         UserId userId = new UserId(id,name,age);
         return userService.getUser(userId);
+    }
+    @DeleteMapping("deleteUser")
+    public String deleteUser(@RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("age") int age)
+    {
+        return userService.deleteUser(id,name,age);
     }
 
 
