@@ -2,16 +2,21 @@ package com.example.sql;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "user_info")
+@IdClass(UserId.class)
+
 public class User {
 
 
     @Id
     private int id;
+    @Id
     private String name;
+    @Id
     private int age;
 
     private String state;
@@ -19,7 +24,7 @@ public class User {
     public User() { //default constructor for beans
     }
 
-    public User(int id, String name, int age, String state) {
+    public User (int id, String name, int age, String state) {
         this.id = id;
         this.name = name;
         this.age = age;
