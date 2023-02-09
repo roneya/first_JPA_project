@@ -27,7 +27,7 @@ public class User {
         this.email = email;
     }
 
-    @Column(name="HomeState")
+    //@Column(name="HomeState")
     private String state;
 
     public User() { //default constructor for beans

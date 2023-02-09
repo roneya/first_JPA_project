@@ -13,20 +13,20 @@ public class UserService {
         userRepository.save(user);
         return "Added";
     }
-    public User getUser(UserId userId)
+    public User getUser(int id)
     {
-        User user =  userRepository.findById(userId).get();
+        User user =  userRepository.findById(id).get();
         return user;
 
     }
-    public String deleteUser(int id, String name, int age)
+    public String deleteUser(int id)
     {
-        userRepository.deleteById(new UserId(id,name, age));
-        return name+" deleted";
+        userRepository.deleteById(id);
+        return id+" deleted";
     }
-    public User updateUserAge (UserId userId, int newAge)
+    public User updateUserAge (int id, int newAge)
     {
-        User user = userRepository.findById(userId).get();
+        User user = userRepository.findById(id).get();
         user.setAge(newAge);
         userRepository.save(user);
         return user;

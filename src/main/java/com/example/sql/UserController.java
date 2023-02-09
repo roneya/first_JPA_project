@@ -16,15 +16,21 @@ public class UserController {
     }
 
     @GetMapping("getUser")
-    public User getUser(@RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("age") int age)
+    public User getUser(@RequestParam("id") int id)
     {
-        UserId userId = new UserId(id,name,age);
-        return userService.getUser(userId);
+
+        return userService.getUser(id);
     }
     @DeleteMapping("deleteUser")
-    public String deleteUser(@RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("age") int age)
+    public String deleteUser(@RequestParam("id") int id)
     {
-        return userService.deleteUser(id,name,age);
+        return userService.deleteUser(id);
+    }
+
+    @PutMapping("updateUserAge")
+    public User updateUserAge(@RequestParam("id") int id, @RequestParam("newAge") int newAge)
+    {
+        return userService.updateUserAge(id,newAge);
     }
 
 
